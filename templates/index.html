@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Crownchase</title>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{{ url_for('static', filename='css/style.css') }}"
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="{{ url_for('static', filename='js/jquery.js') }}"></script>
+  </head>
+  <body>
+    <div id="layer1" class="layer blur-layer" style="z-index: 1"></div>
+    <div id="layer2" class="layer" style="z-index: 2">
+      <h1 class="game-heading">CROWN CHASE</h1>
+      <div class="button-container">
+        <div class="button" id="play-with-friends">
+          <img
+            src="{{ url_for('static', filename='img/buttons/friends.png') }}"
+            alt="Play with Friends"
+          />
+        </div>
+        <div class="button" id="play-against-ai">
+          <img
+            src="{{ url_for('static', filename='img/buttons/ai.png') }}"
+            alt="Play against AI"
+          />
+        </div>
+        <div class="button" id="how-to-play">
+          <img
+            src="{{ url_for('static', filename='img/buttons/tutorial.png') }}"
+            alt="How to Play"
+          />
+        </div>
+      </div>
+    </div>
+    <!-- <div id="layer3" class="layer" style="z-index: 3"></div> -->
+
+    <script src="{{ url_for('static', filename='js/index.js') }}"></script>
+  </body>
+</html>
