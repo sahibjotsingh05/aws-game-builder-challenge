@@ -56,7 +56,9 @@ body {
   /* border: 1px solid transparent; For visibility in development */
 }
 .blur-layer {
-  backdrop-filter: blur(4px); /* Applies blur to layers beneath */
+  backdrop-filter: blur(0px);
+  -webkit-backdrop-filter: blur(0px); /* For Safari support */
+  transition: backdrop-filter 2.5s, -webkit-backdrop-filter 2.5s;
   background-color: rgb(255 255 255 / 0%); /* Slight white transparency */
 }
 
@@ -124,5 +126,157 @@ body {
 
   .button-container  img {
       width: 45vw; /* Make buttons take up more space */
+  }
+}
+#loader-layer{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#loader-layer img{
+  max-height: 10vh;
+}
+#layer2{
+  display: none;
+}
+#upperparchment-layer {
+  z-index: 4;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  top: 50vh;
+}
+#upperparchment-layer img {
+  width: 70vw;
+  margin: 0vh 15vw;
+  height: auto;
+}
+#lowerparchment-layer{
+  z-index: 5;
+  top: 150vh;
+}
+#lowerparchment-layer img {
+  width: 70vw;
+  margin: 0vh 15vw;
+}
+#parchment-layer {
+  z-index: 6;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#parchment {
+  width: 50vw;
+  height: 74vh;
+  background-image: url('./../img/parchment/parchment.png'); 
+  background-size: cover; 
+  background-position: center; 
+  background-repeat: no-repeat;
+  clip-path: inset(37vh 0px 37vh 0px);
+}
+@keyframes moveParchment {
+  0% {
+    clip-path: inset(37vh 0px 37vh 0px);
+  }
+  100% {
+    clip-path: inset(0vh 0px 0vh 0px);
+  }
+}
+@keyframes moveUpperLayer {
+  0% {
+    top: 50vh;
+  }
+  100% {
+    top: -50vh;
+  }
+}
+@keyframes moveLowerLayer {
+  0% {
+    top: 150vh;
+  }
+  100% {
+    top: 50vh;
+  }
+}
+@keyframes moveUpperLayerSecond {
+  0% {
+    top: -50vh;
+  }
+  100% {
+    top: -87vh;
+  }
+}
+@keyframes moveLowerLayerSecond {
+  0% {
+    top: 50vh;
+  }
+  100% {
+    top: 87vh;
+  }
+}
+@keyframes reverseUpperLayerSecond {
+  0% {
+    top: -87vh;
+  }
+  100% {
+    top: -50vh;
+  }
+}
+@keyframes reverseLowerLayerSecond {
+  0% {
+    top: 87vh;
+  }
+  100% {
+    top: 50vh;
+  }
+}
+@keyframes reverseParchment {
+  0% {
+    clip-path: inset(0vh 0px 0vh 0px);
+  }
+  100% {
+    clip-path: inset(37vh 0px 37vh 0px);
+  }
+}
+@keyframes reverseUpperLayer {
+  0% {
+    top: -50vh;
+  }
+  100% {
+    top: 50vh;
+  }
+}
+@keyframes reverseLowerLayer {
+  0% {
+    top: 50vh;
+  }
+  100% {
+    top: 150vh;
+  }
+}
+@media screen and (max-width: 1153px) {
+  #upperparchment-layer img {
+    width: 80vw;
+    margin: 0vh 10vw;
+  }
+  #lowerparchment-layer img {
+    width: 80vw;
+    margin: 0vh 10vw;
+  }
+  #parchment {
+    width: 57vw;
+  }
+}
+@media screen and (max-width: 1153px) {
+  #upperparchment-layer img {
+    width: 90vw;
+    margin: 0vh 5vw;
+  }
+  #lowerparchment-layer img {
+    width: 90vw;
+    margin: 0vh 5vw;
+  }
+  #parchment {
+    width: 65vw;
   }
 }

@@ -35,8 +35,22 @@
         </div>
       </div>
     </div>
-    <!-- <div id="layer3" class="layer" style="z-index: 3"></div> -->
-
+    <div id="loader-layer" class="layer" style="z-index: 3">
+      <img src="{{ url_for('static', filename='img/loader.gif') }}" />
+    </div>
+    <div id="upperparchment-layer" class="layer">
+      <img
+        src="{{ url_for('static', filename='img/parchment/upperparchment.png') }}"
+      />
+    </div>
+    <div id="lowerparchment-layer" class="layer">
+      <img
+        src="{{ url_for('static', filename='img/parchment/bottomparchment.png') }}"
+      />
+    </div>
+    <div id="parchment-layer" class="layer">
+      <div id="parchment"></div>
+    </div>
     <script src="{{ url_for('static', filename='js/index.js') }}"></script>
   </body>
 </html>
