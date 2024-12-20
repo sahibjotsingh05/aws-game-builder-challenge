@@ -51,6 +51,9 @@
     <div id="parchment-layer" class="layer">
       <div id="parchment"></div>
     </div>
+    <div id="parchment-loader-layer" class="layer" style="z-index: 7">
+      <img src="{{ url_for('static', filename='img/loader.gif') }}" />
+    </div>
     <script src="{{ url_for('static', filename='js/index.js') }}"></script>
   </body>
 </html>

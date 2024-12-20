@@ -280,3 +280,141 @@ body {
     width: 65vw;
   }
 }
+#parchment-loader-layer{
+  display: none;
+  justify-content: center;
+  align-items: center;
+}
+#parchment-loader-layer img{
+  max-width: 10vw;
+}
+.parchment-row-align-right{
+  display: flex;
+  justify-content: flex-end;
+}
+.parchment-cross{
+  height: 7vh;
+    margin: 1%;
+    cursor: pointer;
+}
+.parchment-row-center{
+  width: 100%;
+  text-align: center;
+}
+.game-pin-text{
+  width: 50%;
+  height: 7vh;
+  border: 2px solid #472c1a;
+  background: none;
+  font-size: 4vh;
+  color: #809d8e;
+  text-align: center;
+  margin-top: 4vh;
+}
+.game-pin-btn{
+  margin-top: 2vh;
+  width: 51%;
+  border: 2px solid;
+  font-size: 4vh;
+  background: #a97651;
+  cursor: pointer;
+  height: fit-content;
+  padding: 1vh;
+}
+.parchment-or-text{
+  margin-top: 8%;
+  margin-bottom: 7%;
+  font-size: 3vh;
+  color: var(--primary-blue);
+}
+.game-pin-error{
+  margin: 0px;
+  color: red;
+  display: none;
+}
+@media screen and (max-width: 500px) {
+  .game-pin-text {
+    font-size: 3vh;
+  }
+  .parchment-cross {
+    height: 5vh;
+    margin: 3%;
+  }
+  .game-pin-btn {
+    font-size: 3vh;
+  }
+}
+.parchment-flex-row{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.parchment-profile-pic{
+  height: 24vh;
+  border: 7px solid #4e3e32;
+  border-radius: 20px;
+  padding: 1vh;
+}
+.parchment-profile-pic-select{
+  height: 7vh;
+  cursor: pointer;
+}
+
+.court-sessions-container {
+  width: 51%;
+  margin: 0px 24.5%;
+  margin-top: 2vh;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.court-sessions-display {
+  font-size: 4vh;
+    color: #000000;
+    margin: 0 1vw;
+}
+
+.game-pin-btn-court-session-controls {
+  width: 10%;
+  border: 2px solid #472c1a;
+  font-size: 4vh;
+  background: #a97651;
+  cursor: pointer;
+  height: fit-content;
+  padding: 1vh;
+}
+@media screen and (max-width: 860px) {
+  .court-sessions-display {
+    font-size: 3vh;
+  }
+  .game-pin-btn-court-session-controls {
+    font-size: 2vh;
+    width: 15%;
+  }
+  .court-sessions-container {
+    width: 67%;
+    margin: 0px 16.5%;
+    margin-top: 2vh;
+  }
+  .parchment-profile-pic {
+    height: 15vh;
+  }
+}
+@media screen and (max-width: 350px) {
+  .court-sessions-display {
+    font-size: 3vh;
+  }
+  .game-pin-btn-court-session-controls {
+    font-size: 2vh;
+    width: 15%;
+  }
+  .court-sessions-container {
+    width: 67%;
+    margin: 0px 16.5%;
+    margin-top: 2vh;
+  }
+  .parchment-profile-pic {
+    height: 10vh;
+  }
+}
