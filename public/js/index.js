@@ -50,13 +50,46 @@ $(document).ready(function () {
           <button class="game-pin-btn">Next</button>
         `;
     }
+    if (type == 2) {
+      return `<h5 class="parchment-wait-game-pin-head">GAME PIN</h5>
+        <h1 class="parchment-wait-game-pin">8A769</h1>
+        <div class="parchment-wait">
+          <p>Waiting for players to join</p>
+          <img src="/public/img/load.gif" />
+        </div>
+        <div class="parchment-wait-character-list">
+          <img
+            src="/public/img/characters/11.svg"
+          />
+          <p>Player 1</p>
+        </div>
+        <div class="parchment-wait-character-list">
+          <img
+            src="/public/img/characters/11.svg"
+          />
+          <p>Player 2</p>
+        </div>
+        <div class="parchment-wait-character-list">
+          <img
+            src="/public/img/characters/11.svg"
+          />
+          <p>Player 3</p>
+        </div>
+        <div class="parchment-wait-character-list">
+          <img
+            src="/public/img/characters/11.svg"
+          />
+          <p>Player 4</p>
+        </div>
+        <div class="parchment-wait-start-btn">Start Game</div>`;
+    }
     return ``;
   }
 
   function dropParchment(type) {
     var htmlString = getHTMLContent(type);
-    //$("#parchment").empty();
-    //$("#parchment").append(htmlString);
+    $("#parchment").empty();
+    $("#parchment").append(htmlString);
     $("#upperparchment-layer").show();
     $("#lowerparchment-layer").show();
     $("#upperparchment-layer").css({
@@ -119,7 +152,7 @@ $(document).ready(function () {
   $(document).on("click", ".parchment-cross", function () {
     hideParchment();
   });
-  dropParchment(0); // temporarily
+  //dropParchment(2); // temporarily
 
   const pfps = [
     "9.svg",
@@ -175,4 +208,9 @@ $(document).ready(function () {
   function getCurrentSessions() {
     return currentSessions;
   }
+  function hideMainScreen() {
+    $("#layer2").fadeOut(500);
+    $("#cards-animation-layer").fadeIn(500);
+  }
+  hideMainScreen();
 });

@@ -418,3 +418,86 @@ body {
     height: 10vh;
   }
 }
+.parchment-wait-game-pin-head{
+  text-align: center;
+  width: 100%;
+  margin: 0px;
+  font-size: 20px;
+  color: #6c4428;
+  margin-top: 3vh;
+}
+.parchment-wait-game-pin{
+  text-align: center;
+  width: 100%;
+  margin: 0px;
+  font-size: 95px;
+  color: #b7413b;
+}
+.parchment-wait{
+  width: 100%;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+}
+.parchment-wait img{
+  height: 2vh;
+  margin-left: 2%;
+}
+.parchment-wait p{
+  font-size: 2.2vh;
+  margin: 1vh 0px;
+}
+.parchment-wait-character-list{
+  display: flex;
+  background: #6c4428;
+  width: 70%;
+  margin: 1vh 15%;
+  border-radius: 5px;
+  align-items: center;
+}
+.parchment-wait-character-list img {
+  height: 5vh;
+  margin: 0.7vh 1vh;
+  background: #cfc5c5;
+  border-radius: 18vh;
+  padding: 0.2vh;
+}
+.parchment-wait-character-list p{
+  font-size: 2.5vh;
+  color: #ffffff;
+  margin: 0px;
+}
+.parchment-wait-start-btn{
+  text-align: center;
+  background-color: #b7413b;
+  color: white;
+  width: 40%;
+  margin: 1vh 30%;
+  font-size: 3vh;
+  border-radius: 7vh;
+  padding: 1vh 0vw;
+  cursor: pointer;
+  margin-top: 4vh;
+}
+@media screen and (max-width: 434px) {
+  .parchment-wait-game-pin {
+    font-size: 69px;
+  }
+  .parchment-wait-game-pin-head {
+    font-size: 16px;
+  }
+  .parchment-wait-start-btn {
+    font-size: 2vh;
+  }
+  .parchment-wait-character-list p {
+    font-size: 2vh;
+  }
+  .parchment-wait-character-list img {
+    height: 4vh;
+  }
+}
+#cards-animation-layer{
+  z-index: 8;
+  display: none;
+}
