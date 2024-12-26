@@ -212,5 +212,46 @@ $(document).ready(function () {
     $("#layer2").fadeOut(500);
     $("#cards-animation-layer").fadeIn(500);
   }
-  hideMainScreen();
+  function initiallyRollCards() {
+    hideMainScreen();
+    $(".cards-roll-area-img1").css("left", "100vw");
+    $(".cards-roll-area-img2").css("left", "-10vw");
+    $("#cards-animation-layer").css("top", "-50vh");
+
+    $(".cards-roll-area-img2").css({
+      animation: "leftcardrollentry 2s forwards",
+    });
+    $(".cards-roll-area-img1").css({
+      animation: "rightcardrollentry 2s forwards",
+    });
+    $(".cards-roll-area-img1").one("animationend", function () {
+      $(".cards-roll-area").css({
+        animation: "rotatecardsinitial 1s forwards",
+      });
+      $(".cards-roll-area").one("animationend", function () {
+        $(".cards-roll-area-img4").css("display", "block");
+        $(".cards-roll-area").css({
+          animation: "rotatecardscontinue 3s forwards",
+        });
+        setTimeout(function () {
+          $(".cards-roll-area-img2").css({
+            animation: "leftcardrollexit 2s forwards",
+          });
+          $(".cards-roll-area-img1").css({
+            animation: "rightcardrollexit 2s forwards",
+          });
+          $("#card-reveal-layer").css("display", "block");
+          $(".cards-roll-area-img4").css("display", "none");
+          $("#scaling-card").css({
+            animation: "scalecard 2s forwards",
+          });
+          $("#scaling-card-reveal").css({
+            animation: "scalecard 2s forwards",
+          });
+          $("#cards-animation-layer").fadeOut(2000);
+        }, 3000);
+      });
+    });
+  }
+  initiallyRollCards();
 });

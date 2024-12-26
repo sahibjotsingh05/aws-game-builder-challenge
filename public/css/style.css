@@ -500,4 +500,117 @@ body {
 #cards-animation-layer{
   z-index: 8;
   display: none;
+  top: -110vh;
+}
+.cards-roll-area{
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform: rotate(360deg);
+  scale: 1.2;
+}
+.cards-roll-area img{
+  position: absolute;
+  height: 30vh;
+}
+.cards-roll-area-img1 {
+  transform: rotate(90deg);
+  top: 35vh;
+  left: 60vw;
+}
+.cards-roll-area-img2 {
+  transform: rotate(90deg);
+  top: 35vh;
+  left: 31vw;
+}
+.cards-roll-area-img3 {
+  top: 10vh;
+  left: calc(50vw - 0.708* 15vh);
+}
+.cards-roll-area-img4 {
+  top: 60vh;
+  left: calc(50vw - 0.708* 15vh);
+  display: none;
+}
+@keyframes leftcardrollentry {
+  0% {
+    left: -10vw;
+  }
+  100% {
+    left: 31vw;
+  }
+}
+@keyframes rightcardrollentry {
+  0% {
+    left: 100vw;
+  }
+  100% {
+    left: 60vw;
+  }
+}
+@keyframes leftcardrollexit {
+  0% {
+    left: 31vw;
+  }
+  100% {
+    left: -10vw;
+  }
+}
+@keyframes rightcardrollexit {
+  0% {
+    left: 60vw;
+  }
+  100% {
+    left: 100vw;
+  }
+}
+@keyframes rotatecardsinitial {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(180deg);
+  }
+}
+@keyframes rotatecardscontinue {
+  0% {
+    transform: rotate(180deg);
+  }
+  100% {
+    transform: rotate(720deg);
+  }
+}
+#card-reveal-layer{
+  z-index: 9;
+  display: none;
+}
+.cards-roll-reveal-area{
+  position: relative;
+  width: 100%;
+  height: 100%;
+  perspective: 1000px;
+}
+.cards-roll-reveal-area img{
+  position: absolute;
+  height: 30vh;
+  left: calc(50vw - 0.708* 15vh);
+  transform: scale(1.2);
+  top: 15vh;
+  cursor: pointer;
+}
+#scaling-card{
+  z-index: 1;
+}
+#scaling-card-reveal{
+  z-index: 0;
+}
+@keyframes scalecard {
+  0% {
+    transform: scale(1.2);
+    top: 15vh;
+  }
+  100% {
+    transform: scale(2.2);
+    top: 32vh;
+  }
 }

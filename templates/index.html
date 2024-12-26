@@ -55,9 +55,36 @@
       <img src="{{ url_for('static', filename='img/loader.gif') }}" />
     </div>
     <div id="cards-animation-layer" class="layer">
-      <!--
-      Define centroid of figure, rotate it at an angle such that it aligns radially toward a point with respect to clones of itslef positioned at delta x and y with a different angle.
-      -->
+      <div class="cards-roll-area">
+        <img
+          src="{{ url_for('static', filename='img/cards/3.png') }}"
+          class="cards-roll-area-img1"
+        />
+        <img
+          src="{{ url_for('static', filename='img/cards/3.png') }}"
+          class="cards-roll-area-img2"
+        />
+        <img
+          src="{{ url_for('static', filename='img/cards/3.png') }}"
+          class="cards-roll-area-img3"
+        />
+        <img
+          src="{{ url_for('static', filename='img/cards/3.png') }}"
+          class="cards-roll-area-img4"
+        />
+      </div>
+    </div>
+    <div class="layer" id="card-reveal-layer">
+      <div class="cards-roll-reveal-area">
+        <img
+          src="{{ url_for('static', filename='img/cards/3.png') }}"
+          id="scaling-card"
+        />
+        <img
+          src="{{ url_for('static', filename='img/cards/4.png') }}"
+          id="scaling-card-reveal"
+        />
+      </div>
     </div>
     <script src="{{ url_for('static', filename='js/index.js') }}"></script>
   </body>
