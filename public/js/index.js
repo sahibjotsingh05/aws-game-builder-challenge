@@ -249,9 +249,70 @@ $(document).ready(function () {
             animation: "scalecard 2s forwards",
           });
           $("#cards-animation-layer").fadeOut(2000);
+          setTimeout(function () {
+            if (!cardFlipped && !isCardPutBack) {
+              flipCard();
+            }
+          }, 6000);
+          setTimeout(function () {
+            if (!isCardPutBack) {
+              flipCard();
+            }
+          }, 12000);
         }, 3000);
       });
     });
   }
-  initiallyRollCards();
+  // initiallyRollCards();
+  var cardFlipped = false;
+  var currCard = 4;
+  var isCardPutBack = false;
+  function flipCard() {
+    if (!cardFlipped) {
+      cardFlipped = true;
+      $("#scaling-card-reveal").attr(
+        "src",
+        "/public/img/cards/" + currCard + ".png"
+      );
+      $(".cards-roll-reveal-area").css({
+        animation: "flipfrontcard 0.4s linear",
+      });
+      setTimeout(function () {
+        $("#scaling-card").css({
+          "z-index": -1,
+        });
+        $(".cards-roll-reveal-area").css({
+          animation: "flipfrontcardcontinue 0.4s linear",
+        });
+      }, 400);
+    } else {
+      cardFlipped = false;
+      isCardPutBack = true;
+      $(".cards-roll-reveal-area").css({
+        animation: "flipbackcard 0.4s linear",
+      });
+      setTimeout(function () {
+        $("#scaling-card").css({
+          "z-index": 1,
+        });
+        $(".cards-roll-reveal-area").css({
+          animation: "flipbackcardcontinue 0.4s linear",
+        });
+        placeBackCard();
+      }, 400);
+    }
+  }
+  function placeBackCard() {
+    $(".card-roll-image").css({
+      animation: "putBackCard 2s forwards",
+    });
+  }
+  $(document).on("click", ".card-roll-image", function () {
+    flipCard();
+  });
+  function showPlayArea() {
+    $("#layer2").fadeOut(500);
+    $("#playing-area-layer").fadeIn(500);
+  }
+  showPlayArea();
 });

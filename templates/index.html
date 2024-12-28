@@ -79,11 +79,42 @@
         <img
           src="{{ url_for('static', filename='img/cards/3.png') }}"
           id="scaling-card"
+          class="card-roll-image"
         />
         <img
           src="{{ url_for('static', filename='img/cards/4.png') }}"
           id="scaling-card-reveal"
+          class="card-roll-image"
         />
+      </div>
+    </div>
+    <div class="layer" id="playing-area-layer">
+      <div class="playing-area-container">
+        <div class="king-minster-area">
+          <div class="king-minister-img-area">
+            <img
+              src="{{ url_for('static', filename='img/characters/10.svg') }}"
+              class="king-minister-img"
+            />
+            <h1 class="king-minister-name">Sahib</h1>
+            <h2 class="king-minister-title">(King)</h2>
+          </div>
+          <div class="king-minister-img-area">
+            <img
+              src="{{ url_for('static', filename='img/characters/11.svg') }}"
+              class="king-minister-img"
+            />
+            <h1 class="king-minister-name">Dev</h1>
+            <h2 class="king-minister-title">(Minister)</h2>
+          </div>
+        </div>
+        <div class="card-score-area">
+          <img
+            src="{{ url_for('static', filename='img/cards/3.png') }}"
+            class="card-placed"
+          />
+          <div class="score-board">score</div>
+        </div>
       </div>
     </div>
     <script src="{{ url_for('static', filename='js/index.js') }}"></script>
