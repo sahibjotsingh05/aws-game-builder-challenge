@@ -90,6 +90,11 @@
     </div>
     <div class="layer" id="playing-area-layer">
       <div class="playing-area-container">
+        <div class="timer-area">
+          <div class="timer-container">
+            <div class="timer"></div>
+          </div>
+        </div>
         <div class="king-minster-area">
           <div class="king-minister-img-area">
             <img
@@ -114,6 +119,25 @@
             class="card-placed"
           />
           <div class="score-board">score</div>
+        </div>
+        <div class="text-choose-area">
+          <p>Minister! Who's the thief ?</p>
+          <div class="thief-soldier-area">
+            <div class="thief-soldier-img-area">
+              <img
+                src="{{ url_for('static', filename='img/characters/10.svg') }}"
+                class="thief-soldier-img"
+              />
+              <h1 class="thief-soldier-name">Sahib</h1>
+            </div>
+            <div class="thief-soldier-img-area">
+              <img
+                src="{{ url_for('static', filename='img/characters/11.svg') }}"
+                class="thief-soldier-img"
+              />
+              <h1 class="thief-soldier-name">Dev</h1>
+            </div>
+          </div>
         </div>
       </div>
     </div>

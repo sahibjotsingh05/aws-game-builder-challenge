@@ -746,6 +746,69 @@ body {
     width: 47vw;
     height: inherit;
   }
+}
+.timer-container {
+  background: -webkit-linear-gradient(left, #775242 50%, #ddc59f 50%);
+  border-radius: 100%;
+  height: 13vh;
+  top: 5px;
+  width: 13vh;
+  -webkit-animation: time 180s linear 1;
+  animation: time 180s linear 1;
+  -webkit-transition-timing-function: ease-in;
+  transition-timing-function: ease-in;
+  -webkit-transition-duration: 1s;
+  transition-duration: 1s;
+  -moz-transform: translateZ(1) scale(1.0, 1.0);
+  -ms-transform: translateZ(1) scale(1.0, 1.0);
+  -o-transform: translateZ(1) scale(1.0, 1.0);
+  -webkit-transform: translateZ(1) scale(1.0, 1.0);
+   transform: translateZ(1) scale(1.0, 1.0);
+   -webkit-backface-visibility: hidden;
+   backface-visibility: hidden;
+}
+
+.timer {
+  border-radius: 100% 0 0 100% / 50% 0 0 50%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  width: 50%;
+  -webkit-animation: mask 180s linear 1;
+  -webkit-transform-origin: 100% 50%;
+  -webkit-transition-timing-function: ease-in;
+  -webkit-transition-duration: 1s;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+@-webkit-keyframes time { 100% { -webkit-transform: rotate(360deg); } }
+@-webkit-keyframes mask {
+  0% { background: #ddc59f; -webkit-transform: rotate(0deg); }
+  50% { background: #ddc59f; -webkit-transform: rotate(-180deg); }
+  50.01% { background: #775242; -webkit-transform: rotate(0deg); }
+  100% { background: #775242; -webkit-transform: rotate(-180deg); }
+}
+
+@keyframes time { 100% { transform: rotate(360deg); }}
+@keyframes mask {
+  0% { background: #ddc59f; transform: rotate(0deg); }
+  50% { background: #ddc59f; transform: rotate(-180deg); }
+  50.01% { background: #775242; transform: rotate(0deg); }
+  100% {background: #775242; transform: rotate(-180deg);}
+}
+
+.timer-area{
+  position: absolute;
+    top: 2vw;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: 28vh;
+    align-items: center;
+}
+
+@media screen and (max-width: 664px){
   .king-minister-img {
     height: inherit ;
     width: 25vw;
@@ -759,4 +822,55 @@ body {
   .king-minster-area{
     padding: 0px;
   }
+  .timer-area {
+    height: 29vw;
+  }
+  .timer-container {
+    height: 13vw;
+    width: 13vw;
+  }
+}
+.text-choose-area{
+  position: absolute;
+  width: 100%;
+  text-align: center;
+  margin-top: 28vh;
+}
+.text-choose-area p{
+  font-family: "PrinceValiant";
+    color: var(--primary-blue);
+    text-align: center;
+    font-size: 4vh;
+    margin: 0px;
+    text-shadow: 5.5px 5.5px 19px rgb(242 232 198), -0.5px 0.5px 14px rgb(242 232 198 / 82%), 0.5px -0.5px 15px rgb(242 232 198 / 6%), -0.5px -0.5px 5px rgb(242 232 198 / 53%);
+    -webkit-text-stroke: #f2e8c6;
+}
+.thief-soldier-img{
+  height: 13vh;
+  background: #e0dfce;
+  border-radius: 2000px;
+  padding: 1vh;
+  box-shadow: 5.5px 5.5px 19px rgb(45 80 77), -0.5px 0.5px 14px rgb(44 80 77), 0.5px -0.5px 15px rgb(44 80 77), -0.5px -0.5px 5px rgb(44 80 77);
+}
+.thief-soldier-img-area{
+  position: relative;
+  margin-left: 1vw;
+  cursor: pointer;
+}
+.thief-soldier-name{
+  width: 100%;
+  margin: 0px;
+  font-family: "PrinceValiant";
+  color: var(--primary-blue);
+  text-align: center;
+  font-size: 3vh;
+  text-shadow: 5.5px 5.5px 19px rgb(242 232 198), -0.5px 0.5px 14px rgb(242 232 198 / 80%), 0.5px -0.5px 15px rgb(242 232 198 / 80%), -0.5px -0.5px 5px rgba(242, 232, 198, 0.8);
+  -webkit-text-stroke: #f2e8c6;
+}
+.thief-soldier-area{
+  display: flex;
+  justify-content: center;
+  width: auto;
+  padding: 0px 2vw;
+  margin-top: 1vh;
 }
