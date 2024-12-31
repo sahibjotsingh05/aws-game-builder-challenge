@@ -11,7 +11,7 @@ $(document).ready(function () {
 
   function getHTMLContent(type) {
     if (type == 0) {
-      return `<div class="parchment-row-align-right"><img src="/public/img/cross.png" class="parchment-cross"/></div><div class="parchment-row-center"><input type="text" class="game-pin-text" placeholder="GAME PIN" /><p class="game-pin-error">Error: PIN not found</p><button class="game-pin-btn">ENTER</button><p class="parchment-or-text">OR</p><button class="game-pin-btn">CREATE PIN</button></div>`;
+      return `<div class="parchment-row-align-right"><img src="/public/img/cross.png" class="parchment-cross"/></div><div class="parchment-row-center"><input type="text" class="game-pin-text" placeholder="GAME PIN" /><p class="game-pin-error">Error: PIN not found</p><button class="game-pin-btn">ENTER</button><p class="parchment-or-text">OR</p><button class="game-pin-btn" id="create-pin-btn">CREATE PIN</button></div>`;
     }
     if (type == 1) {
       return `
@@ -37,7 +37,7 @@ $(document).ready(function () {
               class="parchment-profile-pic-select pfp-select-right"
             />
           </div>
-          <input type="text" class="game-pin-text" placeholder="Your Name?" />
+          <input type="text" class="game-pin-text" placeholder="Your Name?" id="playerName" />
           <div class="court-sessions-container">
             <button class="game-pin-btn-court-session-controls decrement">
               -
@@ -47,7 +47,7 @@ $(document).ready(function () {
               +
             </button>
           </div>
-          <button class="game-pin-btn">Next</button>
+          <button class="game-pin-btn" id="game-pin-next-btn">Next</button>
         `;
     }
     if (type == 2) {
@@ -151,6 +151,24 @@ $(document).ready(function () {
   });
   $(document).on("click", ".parchment-cross", function () {
     hideParchment();
+  });
+  $(document).on("click", "#create-pin-btn", function () {
+    var playerName = $("#playerName").val();
+    if (playerName == "") {
+      $(".game-pin-error").show();
+      alert("Error");
+      return;
+    }
+    hideParchment();
+    setTimeout(function () {
+      dropParchment(1);
+    }, 2200);
+  });
+  $(document).on("click", "#game-pin-next-btn", function () {
+    hideParchment();
+    setTimeout(function () {
+      dropParchment(2);
+    }, 2200);
   });
   //dropParchment(2); // temporarily
 
@@ -314,5 +332,5 @@ $(document).ready(function () {
     $("#layer2").fadeOut(500);
     $("#playing-area-layer").fadeIn(500);
   }
-  showPlayArea();
+  //showPlayArea();
 });

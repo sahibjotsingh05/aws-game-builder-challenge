@@ -2,6 +2,23 @@
 <html>
   <head>
     <title>Crownchase</title>
+    <script src="https://cdn.socket.io/4.0.0/socket.io.min.js"></script>
+    <script>
+      const token = "{{ random_string }}";
+      const socket = io(`http://127.0.0.1:5000`, { query: { token: token } });
+
+      socket.on("connect", () => {
+        console.log("Connected to server");
+      });
+
+      socket.on("server_response", (data) => {
+        console.log(data.message);
+      });
+
+      socket.on("disconnect", () => {
+        console.log("Disconnected from server");
+      });
+    </script>
     <link
       rel="stylesheet"
       type="text/css"
