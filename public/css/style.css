@@ -283,6 +283,7 @@ body {
 #parchment-loader-layer{
   display: none;
   justify-content: center;
+  background: #00000047;
   align-items: center;
 }
 #parchment-loader-layer img{
@@ -532,6 +533,7 @@ body {
   left: calc(50vw - 0.708* 15vh);
   display: none;
 }
+
 @keyframes leftcardrollentry {
   0% {
     left: -10vw;
@@ -655,14 +657,95 @@ body {
 }
 @keyframes putBackCard {
   0% {
+    height: 30vh;
     left: calc(50vw - 0.708* 15vh);
     transform: scale(2.2);
     top: 32vh;
   }
   100% {
+    height: 48vh;
     left: 2vw;
-    top: calc(90vh - 25vh);
     transform: scale(1);
+    top: calc(100vh - 48vh - 2vw);
+  }
+}
+@media screen and (max-width: 830px) {
+  .cards-roll-area img{
+    height: 26vh;
+  }
+  .cards-roll-area-img4 {
+    /* top: 60vh; */
+    left: calc(50vw - 0.708* 13vh);
+  }
+  .cards-roll-reveal-area img {
+    height: 26vh;
+    left: calc(50vw - 0.708* 13vh);
+  }
+  @keyframes putBackCard {
+    0% {
+      height: 26vh;
+      left: calc(50vw - 0.708* 13vh);
+      transform: scale(2.2);
+      top: 32vh;
+    }
+    100% {
+      height: 48vh;
+      left: 2vw;
+      transform: scale(1);
+      top: calc(100vh - 48vh - 2vw);
+    }
+  }
+}
+@media screen and (max-width: 660px) {
+  .cards-roll-area img{
+    height: 18vh;
+  }
+  .cards-roll-area-img2 {
+    top: 41vh;
+  }
+  .cards-roll-area-img1 {
+    top: 41vh;
+  }
+  .cards-roll-area-img3 {
+    top: 20vh;
+  }
+  .cards-roll-area-img4 {
+    /* top: 60vh; */
+    left: calc(50vw - 0.708* 9vh);
+  }
+  .cards-roll-reveal-area img {
+    height: 18vh;
+    left: calc(50vw - 0.708* 9vh);
+  }
+  @keyframes putBackCard {
+    0% {
+      height: 18vh;
+      left: calc(50vw - 0.708* 9vh);
+      transform: scale(2.2);
+      top: 32vh;
+    }
+    100% {
+      height: 48vh;
+      left: 2vw;
+      transform: scale(1);
+      top: calc(100vh - 48vh - 2vw);
+    }
+  }
+}
+@media screen and (max-width: 400px) {
+  .cards-roll-area img{
+    height: 14vh;
+  }
+  .cards-roll-area-img3 {
+    top: 20vh;
+  }
+  .cards-roll-area-img4 {
+    /* top: 60vh; */
+    left: calc(50vw - 0.708* 9vh);
+  }
+  .cards-roll-reveal-area img {
+    height: 14vh;
+    left: calc(50vw - 0.708* 9vh);
   }
 }
 #playing-area-layer{
@@ -678,6 +761,7 @@ body {
   height: 48vh;
   transform: scale(1);
   cursor: pointer;
+  position: absolute;
 }
 .card-score-area{
   position: absolute;
@@ -687,6 +771,7 @@ body {
   justify-content: space-between;
   right: 2vw;
   width: auto;
+  perspective: 1000px;
 }
 .king-minster-area{
   position: absolute;
@@ -737,7 +822,20 @@ body {
   text-shadow: 5.5px 5.5px 19px rgb(242 232 198), -0.5px 0.5px 14px rgb(242 232 198 / 80%), 0.5px -0.5px 15px rgb(242 232 198 / 80%), -0.5px -0.5px 5px rgba(242, 232, 198, 0.8);
   -webkit-text-stroke: #f2e8c6;
 }
-@media screen and (max-width: 441px) {
+.card-score-card-reveal-area{
+  position: relative;
+  transition: transform 0.6s; 
+  transform-style: preserve-3d;
+  -webkit-transition: transform 0.6s;
+  -webkit-transform-style: preserve-3d;
+  transform-origin: center;
+  width: calc(48vh* 0.708);
+}
+@media screen and (max-width: 504px) {
+  .card-score-card-reveal-area{
+    width: 47vw;
+    height: calc(47vw / 0.708);
+  }
   .card-placed {
     height: max-content;
     width: 47vw;
@@ -746,15 +844,29 @@ body {
     width: 47vw;
     height: inherit;
   }
+  @keyframes putBackCard {
+    0% {
+      height: auto;
+      width: calc(0.708* 18vh);
+      left: calc(50vw - 0.708* 9vh);
+      transform: scale(2.2);
+      top: 32vh;
+    }
+    100% {
+      width: 47vw;
+      height: auto;
+      left: 2vw;
+      transform: scale(1);
+      top: calc(100vh - 47vw / 0.708 - 2vw);
+    }
+  }
 }
 .timer-container {
   background: -webkit-linear-gradient(left, #775242 50%, #ddc59f 50%);
   border-radius: 100%;
+  position: absolute;
   height: 13vh;
-  top: 5px;
   width: 13vh;
-  -webkit-animation: time 180s linear 1;
-  animation: time 180s linear 1;
   -webkit-transition-timing-function: ease-in;
   transition-timing-function: ease-in;
   -webkit-transition-duration: 1s;
@@ -774,7 +886,6 @@ body {
   left: 0;
   top: 0;
   width: 50%;
-  -webkit-animation: mask 180s linear 1;
   -webkit-transform-origin: 100% 50%;
   -webkit-transition-timing-function: ease-in;
   -webkit-transition-duration: 1s;
@@ -807,7 +918,11 @@ body {
     height: 28vh;
     align-items: center;
 }
-
+.timer-frame{
+  position: absolute;
+  height: 13.4vh;
+  z-index: 5;
+}
 @media screen and (max-width: 664px){
   .king-minister-img {
     height: inherit ;
@@ -823,11 +938,14 @@ body {
     padding: 0px;
   }
   .timer-area {
-    height: 29vw;
+    height: 18vw;
   }
   .timer-container {
     height: 13vw;
     width: 13vw;
+  }
+  .timer-frame{
+    height: 13.5vw;
   }
 }
 .text-choose-area{
@@ -840,10 +958,12 @@ body {
   font-family: "PrinceValiant";
     color: var(--primary-blue);
     text-align: center;
-    font-size: 4vh;
+    font-size: 6vh;
     margin: 0px;
     text-shadow: 5.5px 5.5px 19px rgb(242 232 198), -0.5px 0.5px 14px rgb(242 232 198 / 82%), 0.5px -0.5px 15px rgb(242 232 198 / 6%), -0.5px -0.5px 5px rgb(242 232 198 / 53%);
     -webkit-text-stroke: #f2e8c6;
+    width: 50vw;
+    margin: 7vh 25vw;
 }
 .thief-soldier-img{
   height: 13vh;
@@ -874,3 +994,56 @@ body {
   padding: 0px 2vw;
   margin-top: 1vh;
 }
+.card-placed-img{
+  z-index: 1;
+  cursor: pointer;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+.card-placed-img-reveal{
+  z-index: 0;
+  cursor: pointer;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+@media screen and (max-width: 797px) {
+  .text-choose-area p {
+    font-size: 5vh;
+    width: 40vw;
+    margin: 7vh 30vw;
+}
+}
+@media screen and (max-width: 710px) {
+
+.text-choose-area p {
+  font-size: 4vh;
+  width: 40vw;
+  margin: 0vh 30vw;
+}
+}
+
+  @media screen and (max-width: 649px) {
+    .text-choose-area p {
+      font-size: 3vh;
+      width: 40vw;
+      margin: 0vh 30vw;
+      margin-top: -7vh;
+    }
+    }
+    @media screen and (max-width: 369px) {
+      .text-choose-area p {
+        font-size: 4vh;
+        width: 94vw;
+        margin: 0vh 3vw;
+      }
+      .thief-soldier-img-area {
+        margin-left: 0px;
+        margin: 1vh 4vw;
+      }
+      .thief-soldier-img {
+        height: 9vh;
+      }
+      .timer-area {
+        height: 33vw;
+    }
+    }
