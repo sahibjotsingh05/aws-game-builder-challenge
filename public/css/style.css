@@ -1156,3 +1156,75 @@ body {
     font-size: 8vh;
   }
 }
+.results-heading{
+  width: 100%;
+  text-align: center;
+  font-family: "PrinceValiant";
+  color: var(--primary-blue);
+  font-size: 7vh;
+  margin: 1vh 0vw;
+  text-shadow: 5.5px 5.5px 19px rgb(242 232 198), -0.5px 0.5px 14px rgb(242 232 198 / 80%), 0.5px -0.5px 15px rgb(242 232 198 / 80%), -0.5px -0.5px 5px rgba(242, 232, 198, 0.8);
+  -webkit-text-stroke: #f2e8c6;
+}
+.results-section{
+  display: flex
+  ;
+      justify-content: space-evenly;
+}
+.results-individual-section{
+  width: 33%;
+}
+.results-pfp{
+  width: 50%;
+  margin: 1vh 25%;
+  background: #b2b2b2;
+  border-radius: 100%;
+  margin-top: 18vh;
+}
+.winner-pfp{
+  width: 70%;
+  margin: 1vh 15%;
+  background: #b2b2b2;
+  border-radius: 100%;
+}
+.results-winner-tag{
+  width: 50%;
+  margin-top: -1vh;
+  margin-left: 25%;
+}
+.results-name{
+  width: 100%;
+    text-align: center;
+    font-family: "PrinceValiant";
+    color: rgb(122 72 53);
+    font-size: 5vh;
+    margin: -2vh 0vw;
+    text-shadow: 5.5px 5.5px 19px rgb(242 232 198), -0.5px 0.5px 14px rgb(242 232 198 / 80%), 0.5px -0.5px 15px rgb(242 232 198 / 80%), -0.5px -0.5px 5px rgba(242, 232, 198, 0.8);
+    -webkit-text-stroke: #f2e8c6;
+}
+.results-aura{
+  width: 100%;
+    text-align: center;
+    font-family: "PrinceValiant";
+    color: rgb(44 80 77);
+    font-size: 4vh;
+    margin: -2vh 0vw;
+    text-shadow: 5.5px 5.5px 19px rgb(242 232 198), -0.5px 0.5px 14px rgb(242 232 198 / 80%), 0.5px -0.5px 15px rgb(242 232 198 / 80%), -0.5px -0.5px 5px rgba(242, 232, 198, 0.8);
+    -webkit-text-stroke: #f2e8c6;
+}
+@media screen and (max-width: 600px) {
+  .results-heading {
+    font-size: 3vh;
+  }
+  .results-name {
+    font-size: 3vh;
+  }
+  .results-aura {
+    font-size: 2vh;
+    margin: 1vh 0vw;
+  }
+  .results-winner-tag {
+    margin-top: 0vh;
+    margin-bottom: 1vh;
+}
+}

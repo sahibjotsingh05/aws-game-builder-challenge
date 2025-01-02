@@ -109,7 +109,27 @@ $(document).ready(function () {
       );
     }
     if (type == 3) {
-      return ``;
+      return `
+      <h2 class="results-heading">Court Sessions Concluded</h2>
+      <div class="results-section">
+      <div class="results-individual-section">
+      <img src="/public/img/characters/11.svg" class="results-pfp"/>
+      <div class="results-name">Sahib</div>
+      <div class="results-aura">112800 Aura</div>
+      </div>
+      <div class="results-individual-section">
+      <img src="/public/img/characters/12.svg" class="winner-pfp"/>
+      <img src="/public/img/winner-tag.png" class="results-winner-tag"/>
+      <div class="results-name">Arnav</div>
+      <div class="results-aura">112800 Aura</div>
+      </div>
+      <div class="results-individual-section">
+      <img src="/public/img/characters/13.svg" class="results-pfp"/>
+      <div class="results-name">Suvir</div>
+      <div class="results-aura">112800 Aura</div>
+      </div>
+      </div>
+      `;
     }
     return ``;
   }
@@ -581,5 +601,5 @@ $(document).ready(function () {
     }
     //showAura(0);
   }
-  dropParchment(3);
+  //dropParchment(3);
 });
