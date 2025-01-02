@@ -2,9 +2,15 @@ $(document).ready(function () {
   let currselected = 0;
   let currentSessions = 20;
   let gamePin = "";
-  let currCard = 4;
-  let king = "Sahib";
-  let minister = "Dev";
+  let currCard = 7;
+  let players = ["Sahib", "Dev", "Arnav", "Suvir"];
+  let playersScore = [124000, 110000, 120000, 180000];
+  let playersPfp = [9, 10, 11, 12];
+  let currSession = 3;
+  let thirdPersonIndex = 2;
+  let fourthPersonIndex = 3;
+  let kingIndex = 0;
+  let ministerIndex = 1;
 
   $(".blur-layer").css({
     "backdrop-filter": "blur(4px)",
@@ -101,6 +107,9 @@ $(document).ready(function () {
         </div>
         <div class="parchment-wait-start-btn">Start Game</div>`
       );
+    }
+    if (type == 3) {
+      return ``;
     }
     return ``;
   }
@@ -380,7 +389,7 @@ $(document).ready(function () {
       });
     });
   }
-  initiallyRollCards();
+  //initiallyRollCards();
   var cardFlipped = false;
   var cardFlippedsecond = false;
   var isCardPutBack = false;
@@ -486,16 +495,91 @@ $(document).ready(function () {
   }
   function showPlayArea() {
     $("#layer2").fadeOut(500);
-    $("#king-name").text(king);
-    $("#minister-name").text(minister);
+    $("#king-name").text(players[kingIndex]);
+    $("#minister-name").text(players[ministerIndex]);
+    $("#king-pfp").attr(
+      "src",
+      "/public/img/characters/" + playersPfp[kingIndex] + ".svg"
+    );
+    $("#minister-pfp").attr(
+      "src",
+      "/public/img/characters/" + playersPfp[ministerIndex] + ".svg"
+    );
+    $("#game-curr-text").show();
     if (currCard == 4) {
-      $("#king-name").text(king + " (You)");
-      // $(".thief-soldier-area").hide();
+      $("#king-name").text(players[kingIndex] + " (You)");
+      $(".thief-soldier-area").hide();
       $("#game-curr-text").text(
-        "Your Majesty! Minister " + minister + " is pursuing the thief."
+        "Your Majesty! Minister " +
+          players[ministerIndex] +
+          " is pursuing the thief."
+      );
+    }
+    if (currCard == 5) {
+      $("#minister-name").text(players[ministerIndex] + " (You)");
+      $("#third-person-name").text(players[thirdPersonIndex]);
+      $("#fouth-person-name").text(players[fourthPersonIndex]);
+      $("#third-person-pfp").attr(
+        "src",
+        "/public/img/characters/" + playersPfp[thirdPersonIndex] + ".svg"
+      );
+      $("#fourth-person-pfp").attr(
+        "src",
+        "/public/img/characters/" + playersPfp[fourthPersonIndex] + ".svg"
+      );
+      $(".thief-soldier-area").show();
+      $("#game-curr-text").text(
+        "Minister " + players[ministerIndex] + "! Help us find the thief."
+      );
+    }
+    if (currCard == 6 || currCard == 7) {
+      $(".thief-soldier-area").hide();
+      $("#game-curr-text").text(
+        "Minister " + players[ministerIndex] + " is finding the thief."
       );
     }
     $("#playing-area-layer").fadeIn(500);
-    startTimer(120);
+    let sessionHeader = `<h2>Court Session - ${currSession}/${currentSessions}</h2>`;
+    $("#score-board").append(sessionHeader);
+    for (let i = 0; i < players.length; i++) {
+      let playerName = players[i];
+      let score = playersScore[i];
+      let pfp = playersPfp[i];
+      let scoreRow = `
+            <div class="score-row">
+                <img src="/public/img/characters/${pfp}.svg" class="scorepfp" />
+                <div class="profilenamescore">
+                    <div class="profilename">${playerName}</div>
+                    <div class="profilescore">${score}</div>
+                </div>
+            </div>
+        `;
+      $("#score-board").append(scoreRow);
+    }
+    //startTimer(120);
+    function showAura(points) {
+      $("#plus-aura-layer").show();
+
+      if (points > 0) {
+        $("#plus-aura-layer").addClass("positive-aura");
+        $("#plus-aura-layer").removeClass("negative-aura");
+        $("#aura-heading").text("+" + points + " Aura");
+      } else {
+        $("#plus-aura-layer").addClass("negative-aura");
+        $("#plus-aura-layer").removeClass("positive-aura");
+        $("#aura-heading").text(points + " Aura");
+      }
+      $("#plus-aura-layer").css({
+        animation: "auralayer 3s forwards",
+      });
+      $("#aura-heading").css({
+        animation: "gayab 3s forwards",
+      });
+      setTimeout(function () {
+        $("#plus-aura-layer").hide();
+      }, 3000);
+    }
+    //showAura(0);
   }
+  dropParchment(3);
 });

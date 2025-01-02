@@ -2,7 +2,7 @@
 <html>
   <head>
     <title>Crownchase</title>
-    <script src="https://cdn.socket.io/4.0.0/socket.io.min.js"></script>
+    <script src="{{ url_for('static', filename='js/socketio.js') }}"></script>
     <script>
       const token = "{{ random_string }}";
       const socket = io(`http://127.0.0.1:5000`, { query: { token: token } });
@@ -122,6 +122,7 @@
             <img
               src="{{ url_for('static', filename='img/characters/10.svg') }}"
               class="king-minister-img"
+              id="king-pfp"
             />
             <h1 class="king-minister-name" id="king-name"></h1>
             <h2 class="king-minister-title">(King)</h2>
@@ -130,6 +131,7 @@
             <img
               src="{{ url_for('static', filename='img/characters/11.svg') }}"
               class="king-minister-img"
+              id="minister-pfp"
             />
             <h1 class="king-minister-name" id="minister-name"></h1>
             <h2 class="king-minister-title">(Minister)</h2>
@@ -146,7 +148,7 @@
               class="card-placed card-placed-img-reveal"
             />
           </div>
-          <div class="score-board">score</div>
+          <div class="score-board" id="score-board"></div>
         </div>
         <div class="text-choose-area">
           <p id="game-curr-text">Minister! Who's the thief ?</p>
@@ -155,20 +157,25 @@
               <img
                 src="{{ url_for('static', filename='img/characters/10.svg') }}"
                 class="thief-soldier-img"
+                id="third-person-pfp"
               />
-              <h1 class="thief-soldier-name">Sahib</h1>
+              <h1 class="thief-soldier-name" id="third-person-name"></h1>
             </div>
             <div class="thief-soldier-img-area">
               <img
                 src="{{ url_for('static', filename='img/characters/11.svg') }}"
                 class="thief-soldier-img"
+                id="fourth-person-pfp"
               />
-              <h1 class="thief-soldier-name">Dev</h1>
+              <h1 class="thief-soldier-name" id="fouth-person-name"></h1>
             </div>
           </div>
         </div>
       </div>
     </div>
     <script src="{{ url_for('static', filename='js/index.js') }}"></script>
+    <div class="layer auralayer" id="plus-aura-layer">
+      <h1 id="aura-heading">+1000 Aura</h1>
+    </div>
   </body>
 </html>
