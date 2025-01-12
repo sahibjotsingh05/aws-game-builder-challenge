@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Crownchase</title>
+    <script src="https://crownchase.s3.us-east-1.amazonaws.com/public/js/socketio.js"></script>
+    <script>const token = "{{ random_string }}";</script>
+   <link
+   rel="stylesheet"
+   type="text/css"
+   href="https://crownchase.s3.us-east-1.amazonaws.com/public/css/style.css"
+ />
+ <link rel="icon" type="image/x-icon" href="https://crownchase.s3.us-east-1.amazonaws.com/public/img/favicon.ico">
+ <script>
+  function isSafariOnIphone() {
+    const userAgent = navigator.userAgent.toLowerCase();
+    return (
+        /iphone/.test(userAgent) && 
+        /safari/.test(userAgent) && 
+        !/chrome/.test(userAgent)
+    );
+}
+</script>
+ <style></style>
+ <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+ <script src="https://crownchase.s3.us-east-1.amazonaws.com/public/js/jquery.js"></script>
+</head>
+<body>
+ <div id="layer1" class="layer blur-layer" style="z-index: 1"></div>
+ <div id="layer2" class="layer" style="z-index: 2">
+   <h1 class="game-heading">CROWN CHASE</h1>
+   <div class="button-container">
+     <div class="button" id="play-with-friends">
+       <img
+         src="https://crownchase.s3.us-east-1.amazonaws.com/public/img/buttons/friends.png"
+         alt="Play with Friends"
+       />
+     </div>
+     <div class="button" id="how-to-play">
+       <img
+         src="https://crownchase.s3.us-east-1.amazonaws.com/public/img/buttons/tutorial.png"
+         alt="How to Play"
+       />
+     </div>
+   </div>
+ </div>
+ <div id="loader-layer" class="layer" style="z-index: 3">
+   <img src="https://crownchase.s3.us-east-1.amazonaws.com/public/img/loader.gif" />
+ </div>
+ <div id="upperparchment-layer" class="layer">
+   <img
+     src="https://crownchase.s3.us-east-1.amazonaws.com/public/img/parchment/upperparchment.png"
+   />
+ </div>
+ <div id="lowerparchment-layer" class="layer">
+   <img
+     src="https://crownchase.s3.us-east-1.amazonaws.com/public/img/parchment/bottomparchment.png"
+   />
+ </div>
+ <div id="parchment-layer" class="layer">
+   <div id="parchment"></div>
+ </div>
+ <div id="parchment-loader-layer" class="layer" style="z-index: 7">
+   <img src="https://crownchase.s3.us-east-1.amazonaws.com/public/img/loader.gif" />
+ </div>
+ <div id="cards-animation-layer" class="layer">
+   <div class="cards-roll-area">
+     <img
+       src="https://crownchase.s3.us-east-1.amazonaws.com/public/img/cards/3.png"
+       class="cards-roll-area-img1"
+     />
+     <img
+       src="https://crownchase.s3.us-east-1.amazonaws.com/public/img/cards/3.png"
+       class="cards-roll-area-img2"
+     />
+     <img
+       src="https://crownchase.s3.us-east-1.amazonaws.com/public/img/cards/3.png"
+       class="cards-roll-area-img3"
+     />
+     <img
+       src="https://crownchase.s3.us-east-1.amazonaws.com/public/img/cards/3.png"
+       class="cards-roll-area-img4"
+     />
+   </div>
+ </div>
+ <div class="layer" id="card-reveal-layer">
+   <div class="cards-roll-reveal-area">
+     <img
+       src="https://crownchase.s3.us-east-1.amazonaws.com/public/img/cards/3.png"
+       id="scaling-card"
+       class="card-roll-image"
+     />
+     <img
+       src="https://crownchase.s3.us-east-1.amazonaws.com/public/img/cards/4.png"
+       id="scaling-card-reveal"
+       class="card-roll-image"
+     />
+   </div>
+ </div>
+ <div class="layer" id="playing-area-layer">
+   <div class="playing-area-container">
+     <div class="timer-area">
+       <img
+         src="https://crownchase.s3.us-east-1.amazonaws.com/public/img/timer/default.png"
+         class="timer-frame"
+         id="timer-frame"
+       />
+       <div class="timer-container">
+         <div class="timer"></div>
+       </div>
+     </div>
+     <div class="king-minster-area">
+       <div class="king-minister-img-area">
+         <img
+           src="https://crownchase.s3.us-east-1.amazonaws.com/public/img/characters/10.svg"
+           class="king-minister-img"
+           id="king-pfp"
+         />
+         <h1 class="king-minister-name" id="king-name"></h1>
+         <h2 class="king-minister-title">(King)</h2>
+       </div>
+       <div class="king-minister-img-area">
+         <img
+           src="https://crownchase.s3.us-east-1.amazonaws.com/public/img/characters/11.svg"
+           class="king-minister-img"
+           id="minister-pfp"
+         />
+         <h1 class="king-minister-name" id="minister-name"></h1>
+         <h2 class="king-minister-title">(Minister)</h2>
+       </div>
+     </div>
+     <div class="card-score-area">
+       <div class="card-score-card-reveal-area">
+         <img
+           src="https://crownchase.s3.us-east-1.amazonaws.com/public/img/cards/3.png"
+           class="card-placed card-placed-img"
+         />
+         <img
+           src="https://crownchase.s3.us-east-1.amazonaws.com/public/img/cards/4.png"
+           class="card-placed card-placed-img-reveal"
+         />
+       </div>
+       <div class="score-board" id="score-board"></div>
+     </div>
+     <div class="text-choose-area">
+       <p id="game-curr-text">Minister! Who's the thief ?</p>
+       <div class="thief-soldier-area">
+         <div class="thief-soldier-img-area" id="data-player-left" data-player="">
+           <img
+             src="https://crownchase.s3.us-east-1.amazonaws.com/public/img/characters/10.svg"
+             class="thief-soldier-img"
+             id="third-person-pfp"
+           />
+           <h1 class="thief-soldier-name" id="third-person-name"></h1>
+         </div>
+         <div class="thief-soldier-img-area" id="data-player-right" data-player="">
+           <img
+             src="https://crownchase.s3.us-east-1.amazonaws.com/public/img/characters/11.svg"
+             class="thief-soldier-img"
+             id="fourth-person-pfp"
+           />
+           <h1 class="thief-soldier-name" id="fouth-person-name"></h1>
+         </div>
+       </div>
+     </div>
+   </div>
+ </div>
+ <div class="layer auralayer" id="plus-aura-layer">
+  <h1 id="aura-heading">+1000 Aura</h1>
+  </div>
+ <script src="https://crownchase.s3.us-east-1.amazonaws.com/public/js/index.js"></script>
+</body>
+</html>
